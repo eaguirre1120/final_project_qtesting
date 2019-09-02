@@ -1,0 +1,26 @@
+{
+  "name": "wallet",
+  "version": "1.0.0",
+  "description": "Personal wallet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eaguirre1120/final_project_qtesting.git"
+  },
+  "author": "Eyber Aguirre Ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eaguirre1120/final_project_qtesting/issues"
+  },
+  "homepage": "https://github.com/eaguirre1120/final_project_qtesting#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "cucumber": "^5.1.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "selenium-webdriver": "^4.0.0-alpha.4"
+  }
+}
