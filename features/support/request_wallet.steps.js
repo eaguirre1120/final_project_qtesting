@@ -10,9 +10,7 @@ Given('El recurso de API RESOURCE {string}', function(resourceAPI) {
 When('Preparo el JSON de request', function() {
     this.httpOptions = {
         method: 'GET',
-        uri: 'http://localhost:8080/appweb/src/api/wallet',
-        //json: true,
-        //body: newUser,
+        uri: this.endpoint + this.resource,
         resolveWithFullResponse: true
     };
 });

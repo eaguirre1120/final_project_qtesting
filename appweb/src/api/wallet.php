@@ -1,35 +1,30 @@
 <?php
-require_once('../PersonalWallet.php');
-use src\wallet\PersonalWallet;
+require_once('../FactoryTransaction.php');
+use src\wallet\FactoryTransaction;
 
-$walletTransaction = [];
-$transanction = [];
-$balance = 0;
-//Incomes
-for( $i = 0; $i < 5 ; $i++ )
+$transacions = FactoryTransaction::getTransanctions();
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) 
 {
-    // $walletIncome = new PersonalWallet(rand(5,200),0);
-    $amount =  rand(100,2000);
-    $balance = $balance + $amount;
-    $transanction = [
-        'Ingreso' => $amount,
-        'Egreso' => 0
-    ];
-    $walletTransaction['walletTransactions'][] = $transanction;
+    if ( isset( $_REQUEST['income'] ) )
+    {
+        $income = (float) $_REQUEST['income'];
+        $transacions['walletTransactions'][] = [
+            'Ingreso' => $income,
+            'Egreso' => 0
+        ];
+        $transacions['walletBalance'] = $transacions['walletBalance'] + $income;
+        header('HTTP/1.0 201 Created');
+        header('Content-Type: application/json');
+        echo json_encode( $transacions, JSON_PRETTY_PRINT );
+    }
+    else 
+    {
+        header('HTTP/1.0 400 Bad Request');
+        echo "El parámetro income es requerido."; 
+    }
 }
-//Expense
-for( $i = 0; $i < 5 ; $i++ )
-{
-    // $walletIncome = new PersonalWallet(rand(5,200),0);
-    $amount =  rand(100,1000);
-    $balance = $balance - $amount;
-    $transanction = [
-        'Ingreso' => 0,
-        'Egreso' => $amount
-    ];
-    $walletTransaction['walletTransactions'][] = $transanction;
+else if ( $_SERVER['REQUEST_METHOD'] == 'GET' ) {
+    header('HTTP/1.0 200 Ok');
+    header('Content-Type: application/json');
+    echo json_encode( $transacions, JSON_PRETTY_PRINT );
 }
-$walletTransaction['walletBalance'] = $balance;
-
-header('Content-Type: application/json');
-echo json_encode( $walletTransaction, JSON_PRETTY_PRINT );

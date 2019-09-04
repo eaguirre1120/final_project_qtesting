@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <title>Billetera Personal | CARP@EA</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://<?= $_SERVER['HTTP_HOST']?>/appweb/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/bootstrap-theme.min.css">
 </head>
 <body>

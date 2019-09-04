@@ -3,13 +3,18 @@ const httpClient = require('request-promise')
 
 class WalletWorld {
     constructor() {
-        this.endpoint = 'http://localhost:8080/appweb/src/api/';
+        this.endpoint = 'http://localhost/appweb/src/api/';
+        this.appUrl = 'http://localhost/appweb/src/index';
         this.resource = '';
         this.httpOptions = {};
-        this.walletResponse = undefined;
+        this.walletResponse;
+        this.transaction = {};
+        this.income = 0;
+        this.expense = 0;
+        this.chromeDriver = undefined;
     }
 
-    /*sendRequest() {
+    sendRequest() {
         httpClient(this.httpOptions)
             .then(function(response) {
                 this.walletResponse = response;
@@ -17,7 +22,7 @@ class WalletWorld {
             .catch(function(error) {
                 this.walletResponse = error;
             });
-    }*/
+    }
 }
 
 setWorldConstructor(WalletWorld);

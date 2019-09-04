@@ -18,6 +18,7 @@
   "homepage": "https://github.com/eaguirre1120/final_project_qtesting#readme",
   "dependencies": {
     "chai": "^4.2.0",
+    "chromedriver": "^76.0.1",
     "cucumber": "^5.1.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
